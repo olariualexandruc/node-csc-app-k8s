@@ -1,0 +1,312 @@
+{
+    "internalServerError": {
+        "status": 500,
+        "error": "server_error",
+        "error_description": "The remote service encountered an unexpected condition that prevented it from fulfilling the request."
+    },
+    "notImplementedMethod": {
+        "status": 501,
+        "error": "not_implemented_method",
+        "error_description": "The method is not implemented"
+    },
+    "databaseError": {
+        "status": 500,
+        "error": "server_error",
+        "error_description": "The database service encountered an unexpected error."
+    },
+    "invalidToken": {
+        "status": 401,
+        "error": "invalid_token",
+        "error_description": "The token provided is not a valid OAuth access or refresh token."
+    },
+    "expiredToken": {
+        "status": 401,
+        "error": "expired_token",
+        "error_description": "The access or refresh token is expired or has been revoked."
+    },
+    "unauthorisedClient": {
+        "status": 401,
+        "error": "unauthorized_client",
+        "error_description": "The client is not authorized to use this method."
+    },
+    "accessDenied": {
+        "status": 401,
+        "error": "access_denied",
+        "error_description": "The user, authorization server or remote service denied the request."
+    },
+    "authError": {
+        "status": 400,
+        "error": "authentication_error",
+        "error_description": "An error occurred during authentication process"
+    },
+    "invalidRequestParameters": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "The request is missing a REQUIRED parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed."
+    },
+    "invalidCredentialIDFormat": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing (or invalid type) string parameter credentialID"
+    },
+    "invalidCredentialID": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter credentialID"
+    },
+    "malformedAuthMethod": {
+        "status": 401,
+        "error": "invalid_request",
+        "error_description": "Malformed authentication parameter."
+    },
+    "malformedCredentials": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Malformed username-password."
+    },
+    "invalidRefreshTokenFormatParameter": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid string parameter: refresh_token"
+    },
+    "invalidRefreshTokenParameter": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid refresh_token"
+    },
+    "missingTokenParameter": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing (or invalid type) string parameter token"
+    },
+    "invalidTokenHint": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid string parameter token_type_hint"
+    },
+    "invalidTokenParameter": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid string parameter token"
+    },
+    "invalidPageToken": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter pageToken"
+    },
+    "notNullUserID": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "userID parameter MUST be null"
+    },
+    "invalidUserIDFormat": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter userID"
+    },
+    "invalidCertificate": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter certificates"
+    },
+    "disabledSigningKey": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "The credential identified by credentialID is disabled"
+    },
+    "missingNumSignatures": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing (or invalid type) integer parameter numSignatures"
+    },
+    "invalidNumSignatures": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid value for parameter numSignatures"
+    },
+    "tooHighNumSignatures": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Numbers of signatures is too high"
+    },
+    "invalidOTP": {
+        "status": 400,
+        "error": "invalid_otp",
+        "error_description": "The OTP is invalid"
+    },
+    "invalidPIN": {
+        "status": 400,
+        "error": "invalid_pin",
+        "error_description": "The PIN is invalid"
+    },
+    "pinLocked": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "PIN locked"
+    },
+    "otpLocked": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "OTP locked"
+    },
+    "missingSAD": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing (or invalid type) string parameter SAD"
+    },
+    "invalidSAD": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter SAD"
+    },
+    "missingHash": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing (or invalid type) array parameter hash"
+    },
+    "emptyHash": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Empty hash array"
+    },
+    "invalidBase64": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid Base64 hash string parameter"
+    },
+    "unauthorisedHash": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Hash is not authorized by the SAD."
+    },
+    "invalidNonce": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter nonce"
+    },
+    "missingSignAlgo": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing (or invalid type) string parameter signAlgo"
+    },
+    "missingSignAlgoParams": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing (or invalid type) string parameter signAlgoParams"
+    },
+    "missinghashAlgo": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing (or invalid type) string parameter hashAlgo"
+    },
+    "invalidhashAlgo": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter hashAlgo"
+    },
+    "invalidsignAlgo": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter signAlgo"
+    },
+    "invalidClientData": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter clientData"
+    },
+    "invalidHashLenght": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid digest value length"
+    },
+    "expiredSAD": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "SAD expired"
+    },
+    "expiredCredential": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Signing certificate 'O=[organization],CN=[common_name]' is expired."
+    },
+    "missingClientId": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing parameter client_id."
+    },
+    "invalidClientId": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter client_id."
+    },
+    "missingGrantType": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing parameter grant_type."
+    },
+    "invalidGrantType": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter grant_type."
+    },
+    "missingParameterCode": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing parameter code."
+    },
+    "missingRefreshToken": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing parameter refresh_token."
+    },
+    "notMatchRedirectUri": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "redirect_uri parameter does not match redirect_uri parameter of authorization request."
+    },
+    "invalidRefreshToken": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter refresh_token."
+    },
+    "expiredRefreshToken": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Refresh token expired."
+    },
+    "invalidCode": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Authorization code is invalid or expired."
+    },
+    "noAuthHeader": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Client authorization required."
+    },
+    "invalidClientSecret": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid parameter client_secret."
+    },
+    "missingToken": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing parameter token."
+    },
+    "unsupportedToken": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "The authorization server does not support the revocation of the presented token type. That is, the client tried to revoke an access token on a server not supporting this feature."
+    },
+    "missingClientSecret": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Missing parameter token."
+    },
+    "invalidAuthHeader": {
+        "status": 400,
+        "error": "invalid_request",
+        "error_description": "Invalid authorization header."
+    }
+}

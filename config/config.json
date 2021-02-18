@@ -1,0 +1,26 @@
+{
+    "csc": {
+        "access_token_expiring_time": 3600,
+        "refresh_token_expiring_time": 7200,
+        "sad_expiring_time": 1800,
+        "code_expiring_time": 600,
+        "otp_expiring_time": 1800,
+        "max_results": 10
+    },
+    "https": {
+        "host": "0.0.0.0",
+        "port": "8080",
+        "certificate": "/app/resources/certSSL.pem",
+        "private_key": "/app/resources/keySSL.pem",
+        "private_key_password": "1234"
+    },
+    "database_url": "mongodb://192.168.80.101:27017/csc",
+    "resources_path": "/app/resources",
+    "softhsm2_driver_path": "/usr/local/lib/libpkcs11-proxy.so",
+    "openSSL_path": "/usr/bin/openssl",
+    "openSC_path": "/usr/bin/pkcs11-tool",
+    "token": {
+        "slot": "1257191462",
+        "pin": "1234"
+    }
+}
