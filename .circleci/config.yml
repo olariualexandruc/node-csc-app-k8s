@@ -46,10 +46,10 @@ workflows:
     - build:
         filters:
           branches:
-            only: master
+            only: main
     - publish-to-DockerHUB:
         filters:
           branches:
-            only: master
+            only: main
         requires:
         - build
