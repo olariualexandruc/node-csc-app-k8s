@@ -17,8 +17,8 @@
     "database_url": "mongodb://192.168.80.101:27017/csc",
     "resources_path": "/app/resources",
     "softhsm2_driver_path": "/usr/local/lib/libpkcs11-proxy.so",
-    "openSSL_path": "/usr/bin/openssl",
-    "openSC_path": "/usr/bin/pkcs11-tool",
+    "openSSL_path": "process.env.OPENSSL_PATH",
+    "openSC_path": "process.env.OPENSC_PATH",
     "token": {
         "slot": "1257191462",
         "pin": "1234"
