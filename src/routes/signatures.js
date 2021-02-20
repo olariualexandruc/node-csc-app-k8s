@@ -128,7 +128,6 @@ router.post('/signHash',
                   if(foundHash!=hashes.length) return next(errors.unauthorisedHash); 
                   
                   // All is right
-                  
 
                   signHashesv2(hashes,0,[],function(signaturesRes){
                      res.json({
