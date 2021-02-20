@@ -184,7 +184,6 @@ class SoftHSMDriver {
                                     return;
                                 }
 
-
                                 logger.info("Certificate successfully imported to token.");
 
                                 next(credentialID, this.certFile);
