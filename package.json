@@ -44,6 +44,7 @@
         "moment": "^2.29.1",
         "mongoose": "^5.11.0",
         "morgan": "^1.9.1",
+        "nan": "^2.14.2",
         "oauth2orize": "^1.11.0",
         "passport": "^0.4.1",
         "passport-custom": "^1.1.0",
@@ -52,6 +53,7 @@
         "passport-local": "^1.0.0",
         "passport-oauth2-client-password": "^0.1.2",
         "portfinder": "^1.0.25",
+        "sleep": "^6.3.0",
         "validator": "^13.5.1",
         "winston": "^3.2.1"
     },

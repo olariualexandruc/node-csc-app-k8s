@@ -12,6 +12,7 @@ module.exports.index = [
 
 module.exports.loginForm = (request, response) => response.render('login');
 
+
 module.exports.login = passport.authenticate('local', { successReturnToOrRedirect: '/', failureRedirect: loginUrl });
 
 module.exports.logout = (request, response) => {

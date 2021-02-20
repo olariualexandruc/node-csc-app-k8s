@@ -70,7 +70,7 @@ class SoftHSMDriver {
             if (err) {
                 return logger.error(err);
             }
-            logger.info("Cracks when signing data... ") // OLY
+         
             sleep.msleep(50); // error at hsm, "user logged in"
             let cmdToExec = (`"${config.openSC_path}" -s -m RSA-PKCS --module "${config.softhsm2_driver_path}" --slot ${config.token.slot} --pin ${config.token.pin} --id ${credentialID} --input-file "${inputFile}" --output-file "${this.signatureFile}"`);
             exec(cmdToExec, { cwd: `${config.resources_path}` }, (error, stdout, stderr) => {
@@ -84,18 +84,17 @@ class SoftHSMDriver {
                 logger.info("The signature was generated");
 
                 next(this.signatureFile);
-                logger.info("Cracks when verifying data... ") // OLY
-                sleep.msleep(50);
-                cmdToExec = (`"${config.openSC_path}" --id ${credentialID} --verify -m RSA-PKCS --module "${config.softhsm2_driver_path}" --pin ${config.token.pin} --slot ${config.token.slot}  --input-file "${inputFile}" --signature-file "${this.signatureFile}"`);
-                exec(cmdToExec, { cwd: `${config.resources_path}` }, (error) => {
-                    if (error) {
-                        utils.deleteFile(`${inputFile}`);
-                        return next(null, new Error("Signature is invalid"));
-                    }
-                });
+                
+                //sleep.msleep(50);
+                // cmdToExec = (`"${config.openSC_path}" --id ${credentialID} --verify -m RSA-PKCS --module "${config.softhsm2_driver_path}" --pin ${config.token.pin} --slot ${config.token.slot}  --input-file "${inputFile}" --signature-file "${this.signatureFile}"`);
+                // exec(cmdToExec, { cwd: `${config.resources_path}` }, (error) => {
+                //     if (error) {
+                //         utils.deleteFile(`${inputFile}`);
+                //         return next(null, new Error("Signature is invalid"));
+                //     }
+                // });
                 sleep.msleep(200);
-                //utils.deleteFile(`${inputFile}`);
-                //utils.deleteFile(`${this.signatureFile}`);
+
                 utils.deleteFile(`${inputFile}`,(error) => {
                     if (error){
                         return next(null, new Error("Cracks at deleting inputFile"));

@@ -12,6 +12,7 @@ var sleep = require('../../node_modules/sleep');
 
 const router = express.Router();
 
+
 router.post('/signHash',
    passport.authenticate('bearer', { session: false }), function (req, res, next) {
       /* the hashAlgo parameter is only needed when it cannot be derived from the signAlgo parameter. 
@@ -34,6 +35,23 @@ router.post('/signHash',
       const signAlgo = req.body.signAlgo;
       //const signAlgoParams = req.body.signAlgoParams;
       const credential = user.credentials.find(x => x.credentialID === credentialID);
+
+      var signaturesRes = [];
+      var countSignatures = 0;
+
+      function signHashesv2(hashArray, count, signaturesRes, cb){
+         cscServer.sign(credentialID, Buffer.from(hashArray[count]).toString('base64'), signAlgo, (signature, error) => {
+            if (error) { return next(errors.internalServerError); }
+            signaturesRes.push(signature);   // add signature to array
+            countSignatures++;
+
+            if(hashes.length > countSignatures){
+               signHashesv2(hashes, countSignatures, signaturesRes, cb); // call again function
+            }
+            if (hashes.length == countSignatures){
+               cb(signaturesRes);
+            }
+          })};
 
       // Verify credentialID
       if (credentialID === undefined || !validator.isAscii(credentialID)) { return next(errors.invalidCredentialID); }
@@ -110,19 +128,28 @@ router.post('/signHash',
                   if(foundHash!=hashes.length) return next(errors.unauthorisedHash); 
                   
                   // All is right
-                  var signaturesRes = [];
-                  hashes.forEach(function(itemReq,indexReq){
-                     cscServer.sign(credentialID, Buffer.from(itemReq).toString('base64'), signAlgo, (signature, error) => {
-                        if (error) { /*return next(errors.internalServerError); */}
-                        signaturesRes.push(signature)
-                        if(hashes.length == signaturesRes.length){
-                           sleep.msleep(100);
-                           res.json({
-                              signatures: signaturesRes
-                           });
-                        }
+                  
+
+                  signHashesv2(hashes,0,[],function(signaturesRes){
+                     res.json({
+                        signatures: signaturesRes
                      });
                   });
+
+
+                  // hashes.forEach(function(itemReq,indexReq){
+                  //    cscServer.sign(credentialID, Buffer.from(itemReq).toString('base64'), signAlgo, (signature, error) => {
+                  //       if (error) { return next(errors.internalServerError); }
+                  //       signaturesRes.push(signature)
+                  //       if(hashes.length == signaturesRes.length){
+                  //          sleep.msleep(5);
+                  //          return res.json({
+                  //             signatures: signaturesRes
+                  //          });
+                  //          //return next();
+                  //       }
+                  //    });
+                  // });
                });
             } else {
 
@@ -142,19 +169,28 @@ router.post('/signHash',
                   if(foundHash!=hashes.length) return next(errors.unauthorisedHash); 
                   
                   // All is right
-                  var signaturesRes = [];
-                  hashes.forEach(function(itemReq,indexReq){
-                     cscServer.sign(credentialID, Buffer.from(itemReq).toString('base64'), signAlgo, (signature, error) => {
-                        if (error) { return next(errors.internalServerError); }
-                        signaturesRes.push(signature)
-                        if(hashes.length == signaturesRes.length){
-                           sleep.msleep(100);
-                           res.json({
-                              signatures: signaturesRes
-                           });
-                        }
+
+                  
+                  signHashesv2(hashes,0,[],function(signaturesRes){
+                     res.json({
+                        signatures: signaturesRes
                      });
                   });
+
+
+                  // hashes.forEach(function(itemReq,indexReq){
+                  //    cscServer.sign(credentialID, Buffer.from(itemReq).toString('base64'), signAlgo, (signature, error) => {
+                  //       if (error) { return next(errors.internalServerError); }
+                  //       signaturesRes.push(signature)
+                  //       if(hashes.length == signaturesRes.length){
+                  //          sleep.msleep(5);
+                  //          return res.json({
+                  //             signatures: signaturesRes
+                  //          });
+                  //          //return next();
+                  //       }
+                  //    });
+                  // });
                });    
             }
       });
