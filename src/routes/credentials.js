@@ -161,11 +161,12 @@ router.post('/authorise',
             }
 
             // verify otp
-            if (doc.OTP.presence === 'true') {
+            if (typeof otp !== 'undefined') {
                 if (userCredentialObject.otp.value !== utils.hash(otp.toString())) {
                     return next(errors.invalidOTP);
                 }
             }
+            else return next(errors.invalidOTP);
 
             //generate SAD
             crypto.randomBytes(128, function(err, buffer) {
