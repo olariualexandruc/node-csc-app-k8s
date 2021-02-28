@@ -93,7 +93,7 @@ class SoftHSMDriver {
                 //         return next(null, new Error("Signature is invalid"));
                 //     }
                 // });
-                sleep.msleep(200);
+                //sleep.msleep(200);
 
                 utils.deleteFile(`${inputFile}`,(error) => {
                     if (error){
